@@ -1,0 +1,1 @@
+I ain't proud of this, but i feel that i need to re-learn some things by taking baby steps.
