@@ -1,6 +1,7 @@
 from flask import render_template
 
 from the_meat import app
+from .utils import check_inputs
 
 
 @app.route('/')
@@ -11,15 +12,17 @@ def index():
 
 @app.route('/add')
 @app.route('/add/<num1>/<num2>')
+@check_inputs('add')
 def add(num1=None, num2=None):
-    if not num1 or not num2:
-        return "Please enter the number in the URL in the form /num1/num2"
+    # if not num1 or not num2:
+    #     return "Please enter the number in the URL in the form /num1/num2"
     res = int(num1) + int(num2)
     return render_template('add.html', title='Add!', num1=num1, num2=num2, res=res)
 
 
 @app.route('/subtract')
 @app.route('/subtract/<num1>/<num2>')
+@check_inputs('subtract')
 def subtract(num1=None, num2=None):
     if not num1 or not num2:
         return "Please enter the number in the URL in the form /num1/num2"
@@ -29,6 +32,7 @@ def subtract(num1=None, num2=None):
 
 @app.route('/multiply')
 @app.route('/multiply/<num1>/<num2>')
+@check_inputs('multiply')
 def multiply(num1=None, num2=None):
     if not num1 or not num2:
         return "Please enter the number in the URL in the form /num1/num2"
@@ -38,6 +42,7 @@ def multiply(num1=None, num2=None):
 
 @app.route('/divide')
 @app.route('/divide/<num1>/<num2>')
+@check_inputs('divide')
 def divide(num1=None, num2=None):
     if not num1 or not num2:
         return "Please enter the number in the URL in the form /num1/num2"
